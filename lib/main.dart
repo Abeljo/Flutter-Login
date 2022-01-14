@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,60 +19,51 @@ class MyApp extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SafeArea(
+            const SafeArea(
                 child: Padding(
-                    padding: const EdgeInsets.only(
-              top: 150,
+                    padding: EdgeInsets.only(
+              top: 60,
             ))),
             Container(
               padding: const EdgeInsets.only(left: 10),
               width: 500,
-              height: 50,
-              child: Text(
+              height: 60,
+              child: const Text(
                 "Get Started",
-                style: TextStyle(
-                  fontSize: 40,
-                ),
+                style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900),
               ),
             ),
             Container(
               padding: const EdgeInsets.only(left: 10),
               width: 300,
               height: 40,
-              child: Text(
-                "Or Create new account? ",
-                style: TextStyle(fontSize: 15, color: Colors.black26),
+              child: Row(
+                children: [
+                  const Text(
+                    "Already have an account? ",
+                    style: TextStyle(fontSize: 17, color: Colors.black45),
+                  ),
+                  new InkWell(
+                    child: Text(
+                      'Sign In',
+                      style: TextStyle(color: Colors.lightBlue),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.only(left: 10),
-              width: 300,
-              height: 40,
-              child: Text(
-                "UserName: ",
-                style: TextStyle(fontSize: 15, color: Colors.black38),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 10),
-              width: 400,
-              height: 50,
-              child: const TextField(
-                obscureText: false,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'User Name',
-                    hintText: 'Enter Your userName'),
-                textAlign: TextAlign.center,
-              ),
-            ),
+            const SafeArea(
+                child: Padding(
+                    padding: EdgeInsets.only(
+              top: 0,
+            ))),
             Container(
               padding: const EdgeInsets.only(left: 10, top: 10),
               width: 300,
               height: 40,
-              child: Text(
-                "Password:",
-                style: TextStyle(fontSize: 15, color: Colors.black38),
+              child: const Text(
+                "Full name: ",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
               ),
             ),
             Container(
@@ -81,63 +72,146 @@ class MyApp extends StatelessWidget {
               ),
               width: 400,
               height: 50,
-              child: TextField(
+              child: const TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.person),
+                  border: OutlineInputBorder(),
+                  labelText: 'Full Name',
+                  hintText: 'Enter Your Full name',
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SafeArea(
+                child: Padding(
+                    padding: EdgeInsets.only(
+              top: 3,
+            ))),
+            Container(
+              padding: const EdgeInsets.only(
+                left: 10,
+              ),
+              width: 300,
+              height: 30,
+              child: const Text(
+                "Email:",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(
+                left: 10,
+              ),
+              width: 400,
+              height: 50,
+              child: const TextField(
                 obscureText: true,
                 decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.mail),
+                    border: OutlineInputBorder(),
+                    labelText: 'Email',
+                    hintText: 'example@gmail.com'),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SafeArea(
+                child: Padding(
+                    padding: EdgeInsets.only(
+              top: 0,
+            ))),
+            Container(
+              padding: const EdgeInsets.only(
+                left: 10,
+              ),
+              width: 300,
+              height: 30,
+              child: const Text(
+                "Password:",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(
+                left: 10,
+              ),
+              width: 400,
+              height: 50,
+              child: const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
                     border: OutlineInputBorder(),
                     labelText: 'Password',
                     hintText: 'Enter secure password'),
                 textAlign: TextAlign.center,
               ),
             ),
-            Container(
-                width: 400,
-                height: 60,
-                padding: const EdgeInsets.only(
-                  top: 20.0,
-                  left: 10,
-                ),
-                child: Row(children: [
-                  Checkbox(
-                    value: false,
-                    onChanged: (value) {},
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 500,
+                  height: 40,
+                  padding: const EdgeInsets.only(
+                    top: 20.0,
                   ),
-                  Text('Agree To The Terms And Conditions')
-                ])),
-            Container(
-                width: 300,
-                height: 60,
-                padding: const EdgeInsets.only(
-                  top: 20.0,
-                  left: 120.0,
+                  child: Row(children: [
+                    Checkbox(
+                      value: false,
+                      onChanged: (True) {},
+                    ),
+                    const Text(
+                      'i agree to ',
+                      style: TextStyle(color: Colors.black45),
+                    ),
+                    const InkWell(
+                      child: Text(
+                        'Company\'s term ',
+                        style: TextStyle(color: Colors.lightBlue),
+                      ),
+                    ),
+                    const Text(
+                      'and service',
+                      style: TextStyle(color: Colors.black45),
+                    ),
+                  ]),
                 ),
-                child: OutlinedButton(
-                  style: TextButton.styleFrom(primary: Colors.blue),
-                  onPressed: () {},
-                  child: Text('Forgot Password'),
-                )),
-            Container(
-                width: 400,
-                height: 70,
-                padding: const EdgeInsets.only(
-                  top: 20.0,
-                  left: 200.0,
+                Container(
+                  padding: EdgeInsets.only(left: 47),
+                  child: const InkWell(
+                    child: Text(
+                      'Privacy policy\'s',
+                      style: TextStyle(color: Colors.lightBlue),
+                    ),
+                  ),
                 ),
-                child: ElevatedButton(
-                  style: TextButton.styleFrom(
-                      primary: Colors.white, backgroundColor: Colors.blue),
-                  onPressed: () {},
-                  child: const Text('Login'),
+              ],
+            ),
+            Container(
+                height: 150,
+                alignment: Alignment.center,
+                child: SizedBox(
+                  width: 250,
+                  height: 50,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      backgroundColor: Colors.blue,
+                    ),
+                    onPressed: () {},
+                    child: const Text('Register'),
+                  ),
                 )),
             Container(
               padding: const EdgeInsets.only(
                 top: 50.0,
                 left: 300.0,
               ),
-              child: Text(
+              child: const Text(
                 'Abel Yosef\nId:14950/20\nCS3',
                 style: TextStyle(
-                  color: Colors.black45,
+                  fontSize: 12,
+                  color: Colors.black12,
                 ),
               ),
             )
